@@ -1,3 +1,14 @@
+/****************************************
+ * Filename: Parcer.h
+ * Compiler: MS Visual Studio 2019
+ * Author: Patrick Bobyn
+ * Course: CST-8152 - Compilers 012
+ * Assignment: 3
+ * Date: December 6th 2019
+ * Professor: Svillan Ranev
+ * Purpose: All of the header files and variables required for parcer.c
+ ***************************************/
+
 #ifndef PARCER_H_
 #define PARCER_H_
 
@@ -9,27 +20,30 @@
 #include "token.h"
 #endif
 
+/* Define a No Attribute value to be used when matching */
 #define NO_ATTR -1
 
-#define ELSE 0
-#define FALSE 1
-#define IF 2
-#define PLATYPUS 3
-#define READ 4
-#define REPEAT 5
-#define THEN 6
-#define TRUE 7
-#define WHILE 8
-#define WRITE 9
+/* all the keywords with the location in array as a value */
+#define ELSE 0			/* ELSE keyword */
+#define FALSE 1			/* FALSE keyword */
+#define IF 2			/* IF keyword*/
+#define PLATYPUS 3		/* PLATYPUS keyword*/
+#define READ 4			/* READ keyword */
+#define REPEAT 5		/* REPEAT keyword */
+#define THEN 6			/* THEN keyword */
+#define TRUE 7			/* TRUE keyword */
+#define WHILE 8			/* WHILE keyword */
+#define WRITE 9			/* WRITE keyword */
 
-Token lookahead;
-int synerrno;
+Token lookahead;		/* the lookahead Token*/
+int synerrno;			/* number of errors */
 
-extern Token malar_next_token();
-extern int line;
-extern Buffer* str_LTBL;
-extern char* kw_table[];
+extern Token malar_next_token();	/* external function malar_next_token() from scanner */
+extern int line;		/* external int line to count the lines */
+extern Buffer* str_LTBL;	/* the str_LTBL buffer */
+extern char* kw_table[];	/* the external kw_table */
 
+/* List of all functions in parcer.c, these are all named according to the Syntactic Specifications */
 void parser();
 void match(int, int);
 void syn_eh(int);
